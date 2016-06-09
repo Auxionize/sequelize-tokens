@@ -1,0 +1,42 @@
+{
+	"name": "sequelize-tokens",
+	"version": "0.0.1",
+	"description": "Sequelize plugin for managing tokens attached to any model",
+	"main": "index.js",
+	"directories": {
+		"test": "test"
+	},
+	"scripts": {
+		"test": "mocha test"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Auxionize/sequelize-tokens.git"
+	},
+	"keywords": [
+		"sequelize",
+		"plugin",
+		"model",
+		"token",
+		"validation",
+		"expiration"
+	],
+	"author": {
+		"name": "Stefan Stefanov",
+		"email": "stefan.bg@gmail.com"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Auxionize/sequelize-tokens/issues"
+	},
+	"homepage": "https://github.com/Auxionize/sequelize-tokens#readme",
+	"devDependencies": {
+		"chai": "^3.5.0",
+		"chai-as-promised": "^5.3.0",
+		"chai-properties": "^1.2.1",
+		"co-mocha": "^1.1.2",
+		"mocha": "^2.5.3",
+		"pg": "^5.0.0",
+		"sequelize": "^3.23.3"
+	}
+}
