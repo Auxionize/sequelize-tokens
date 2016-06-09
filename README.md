@@ -1,2 +1,2 @@
 # sequelize-tokens
-Sequelize plugin for managing tokens to any model
+Sequelize plugin for managing tokens attached to any model
