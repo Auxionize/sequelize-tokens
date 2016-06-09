@@ -11,7 +11,7 @@ npm install sequelize-tokens
 and then attach the plugin:
 
 ```javascript
-require('sequelize-tokens)(Sequelize);
+require('sequelize-tokens')(Sequelize);
 ```
 
 ## Usage
@@ -27,7 +27,7 @@ sequelize.define('Model', attributes, {
 
 Such a definition gives to Model and each its instances the following superpowers:
 
- * associations ```typeAToken```, ```typeBToken```, ...
+ * associations ```typeAToken```, ```typeBToken```
 
 	This allows to fetch the token (of any type) along with fething the entity itself:
 
