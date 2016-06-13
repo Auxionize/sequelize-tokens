@@ -35,6 +35,13 @@
 module.exports = function (Sequelize) {
 	const _ = Sequelize.Utils._;
 
+	// Prevent attaching the plugin more than once
+	if (Sequelize.hasHook('afterInit')) {
+		if (_.find(Sequelize.options.hooks.afterInit, hook => hook.name === 'sequelize-tokens')) {
+			return; // The plugin has already been attached, so - do nothing
+		}
+	}
+
 	function attachTokens(options, sequelize) {
 		if (!options.useTokens) {
 			return;
@@ -42,6 +49,7 @@ module.exports = function (Sequelize) {
 
 		const Token = sequelize.import('./lib/token.model.js');
 
+		options.classMethods = options.classMethods || {};
 		let originalAssociate = options.classMethods.associate || function () {};
 
 		_.extend(options.classMethods, {
@@ -99,7 +107,7 @@ module.exports = function (Sequelize) {
 		});
 	}
 
-	Sequelize.addHook('afterInit', function(sequelize) {
+	Sequelize.addHook('afterInit', 'sequelize-tokens', function(sequelize) {
 		sequelize.addHook('beforeDefine', function (attributes, options) {
 			attachTokens(options, sequelize);
 		});
